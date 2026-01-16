@@ -35,11 +35,7 @@ finish-args:
   - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
 
   # R home directory for R integration
-  - --env=R_HOME=/app/lib64/R
-  - --env=LD_LIBRARY_PATH=/app/lib64/R/lib
-
-  # Python packages location
-  - --env=PYTHONPATH=/app/lib/python3.13/site-packages
+  - --env=R_HOME=/app/lib/R
 
   # DBus for desktop integration
   - --talk-name=org.freedesktop.Notifications
@@ -176,7 +172,9 @@ modules:
       - type: git
         url: https://github.com/GoldenCheetah/GoldenCheetah.git
         # PR #4747: Python/SIP upgrade - switch to tag/master after merge
-        commit: e4a419dc5334a7f56e97f8c9efad8e61344e84d3
+        commit: 71d89f806723f5b939250c291ee91946f7a579c8
+        # Workaround for corrupted git object in upstream repo
+        disable-fsckobjects: true
       # Fix for Python version not showing in About dialog (PR #4747 bug)
       # TODO: Remove this patch once fix is merged upstream
       - type: patch
