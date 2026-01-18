@@ -172,13 +172,9 @@ modules:
       - type: git
         url: https://github.com/GoldenCheetah/GoldenCheetah.git
         # PR #4747: Python/SIP upgrade - switch to tag/master after merge
-        commit: 71d89f806723f5b939250c291ee91946f7a579c8
+        commit: 09b8c7598997446b11654aed9cfa4439f1e75ce1
         # Workaround for corrupted git object in upstream repo
         disable-fsckobjects: true
-      # Fix for Python version not showing in About dialog (PR #4747 bug)
-      # TODO: Remove this patch once fix is merged upstream
-      - type: patch
-        path: fix-python-about-dialog.patch
       - type: file
         path: org.goldencheetah.GoldenCheetah.desktop
       - type: file
