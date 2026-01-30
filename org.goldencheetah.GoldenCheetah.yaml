@@ -146,8 +146,6 @@ modules:
   - python3-packages.yaml
 
   # GoldenCheetah
-  # TODO: Switch to master branch once PR #4747 is merged
-  # PR #4747: https://github.com/GoldenCheetah/GoldenCheetah/pull/4747
   - name: goldencheetah
     buildsystem: simple
     build-options:
@@ -171,10 +169,10 @@ modules:
     sources:
       - type: git
         url: https://github.com/GoldenCheetah/GoldenCheetah.git
-        # PR #4747: Python/SIP upgrade - switch to tag/master after merge
-        commit: 09b8c7598997446b11654aed9cfa4439f1e75ce1
-        # Workaround for corrupted git object in upstream repo
-        disable-fsckobjects: true
+        tag: v3.8-DEV2601
+        x-checker-data:
+          type: git
+          tag-pattern: ^v([\d.]+-DEV\d+)$
       - type: file
         path: org.goldencheetah.GoldenCheetah.desktop
       - type: file
